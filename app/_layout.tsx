@@ -7,16 +7,23 @@ import { View, ActivityIndicator } from "react-native";
 export default function RootLayout() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState<User | null>(null); // Explicitly define type
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user); // No more TypeScript errors!
+      setUser(user);
       setLoading(false);
-      if (!user) router.replace("/login");
+
+      if (!user) {
+        console.log("No user, redirecting to login...");
+        router.replace("/login");
+      } else {
+        console.log("User logged in:", user.email);
+        router.replace("/"); // Make sure this is the correct path
+      }
     });
 
-    return unsubscribe;
+    return () => unsubscribe();
   }, []);
 
   if (loading) {

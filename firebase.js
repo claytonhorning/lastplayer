@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AlzaSyCPYj1kNz_m2EtX4c8xfNOtuDb5eLo4hZY",
+  apiKey: "AIzaSyDh5XT1CcxbqYt9OVfNIRm2eKIPexox97s",
   authDomain: "lastplayer-dcfb1.firebaseapp.com",
   projectId: "lastplayer-dcfb1",
   storageBucket: "lastplayer-dcfb1.appspot.com",
